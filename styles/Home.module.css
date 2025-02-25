@@ -1,109 +1,109 @@
 
 .container {
   min-height: 100vh;
-  background: linear-gradient(180deg, #f5f7ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #f6f9ff 0%, #ffffff 100%);
 }
 
 .main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 3rem 2rem;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4a6fff 0%, #45e3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 .heroContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .heroContent h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   line-height: 1.2;
   margin: 0;
+  text-align: center;
+  font-weight: 800;
 }
 
 .highlight {
-  color: #4a6fff;
+  background: linear-gradient(135deg, #4a6fff 0%, #45e3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  color: #666;
-  font-size: 1.2rem;
+  color: #546e7a;
+  font-size: 1.4rem;
   line-height: 1.6;
   margin: 0;
+  text-align: center;
+  max-width: 800px;
 }
 
 .buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin: 2rem 0;
 }
 
 .primaryButton, .secondaryButton {
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-weight: 500;
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(74, 111, 255, 0.1);
 }
 
 .primaryButton {
-  background: #4a6fff;
+  background: linear-gradient(135deg, #4a6fff 0%, #45e3ff 100%);
   color: white;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(74, 111, 255, 0.2);
 }
 
 .secondaryButton {
   background: white;
   color: #4a6fff;
-  border: 1px solid #4a6fff;
+  border: 2px solid rgba(74, 111, 255, 0.2);
+}
+
+.secondaryButton:hover {
+  background: rgba(74, 111, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 .imageContainer {
   width: 100%;
-  max-width: 800px;
-  margin: 3rem 0;
+  max-width: 900px;
+  margin: 4rem auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(74, 111, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.imageContainer:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(74, 111, 255, 0.15);
 }
 
 .previewImage {
   width: 100%;
   height: auto;
-}
-
-.currencySupport {
-  margin: 2rem 0;
-}
-
-.currencies {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.currencies span {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #f0f3ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-}
-
-.footer {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #666;
+  display: block;
 }

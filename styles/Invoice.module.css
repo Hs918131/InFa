@@ -1,6 +1,7 @@
+
 .container {
   min-height: 100vh;
-  background: #fafafa;
+  background: linear-gradient(135deg, #f6f9ff 0%, #ffffff 100%);
   padding: 2rem;
 }
 
@@ -8,42 +9,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 2rem;
 }
 
-.invoiceHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-}
-
-.invoiceHeader h1 {
-  margin: 0;
-}
-
 .logo {
-  display: flex;
-  align-items: center;
-}
-
-.logoImage {
-  max-height: 80px;
-  max-width: 200px;
-  object-fit: contain;
-}
-
-.logoUpload {
-  cursor: pointer;
-  padding: 10px 20px;
-  border: 2px dashed #eee;
-  border-radius: 8px;
-  color: #666;
-}
-
-.logoUpload input {
-  display: none;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4a6fff 0%, #45e3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .actions {
@@ -53,93 +28,153 @@
 }
 
 .currencySelect {
-  padding: 0.5rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(74, 111, 255, 0.1);
+  border-radius: 12px;
   background: white;
+  font-size: 0.95rem;
+  color: #546e7a;
+  transition: all 0.3s ease;
 }
 
-.taxDetails {
-  margin-bottom: 2rem;
-}
-
-.taxRow {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.taxLine {
-  display: flex;
-  justify-content: space-between;
-  color: #666;
-  margin-bottom: 0.5rem;
+.currencySelect:hover {
+  border-color: rgba(74, 111, 255, 0.3);
 }
 
 .copyButton, .printButton {
   background: white;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 0.5rem;
+  border: 2px solid rgba(74, 111, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.copyButton:hover, .printButton:hover {
+  background: rgba(74, 111, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 .invoiceForm {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: white;
-  padding: 2rem;
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(74, 111, 255, 0.1);
+}
+
+.invoiceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.invoiceHeader h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  background: linear-gradient(135deg, #4a6fff 0%, #45e3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logoImage {
+  max-height: 100px;
+  max-width: 240px;
+  object-fit: contain;
+}
+
+.logoUpload {
+  cursor: pointer;
+  padding: 1.5rem 2rem;
+  border: 2px dashed rgba(74, 111, 255, 0.2);
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #546e7a;
+  transition: all 0.3s ease;
+}
+
+.logoUpload:hover {
+  border-color: rgba(74, 111, 255, 0.4);
+  background: rgba(74, 111, 255, 0.05);
+}
+
+.logoUpload input {
+  display: none;
 }
 
 .formSection {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .formGroup label {
-  font-weight: 500;
-  color: #666;
+  font-weight: 600;
+  color: #546e7a;
+  font-size: 0.95rem;
 }
 
 .formGroup input, .formGroup textarea {
-  padding: 0.75rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
+  padding: 1rem;
+  border: 2px solid rgba(74, 111, 255, 0.1);
+  border-radius: 12px;
   font-size: 1rem;
+  color: #37474f;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus, .formGroup textarea:focus {
+  border-color: rgba(74, 111, 255, 0.3);
+  outline: none;
 }
 
 .addresses {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .addresses textarea {
-  height: 100px;
+  height: 120px;
   resize: vertical;
 }
 
-.entries {
-  margin-bottom: 2rem;
+.entries, .taxDetails {
+  margin-bottom: 3rem;
 }
 
-.entryRow {
+.entries h2, .taxDetails h2 {
+  color: #37474f;
+  margin-bottom: 1.5rem;
+}
+
+.entryRow, .taxRow {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1rem;
+  align-items: center;
+}
+
+.taxRow {
+  grid-template-columns: 2fr 1fr auto;
+}
+
+.entryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #37474f;
 }
 
 .addEntryButton {
@@ -147,71 +182,86 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  font-weight: 500;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
-.totals {
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
-  margin-bottom: 2rem;
-}
-
-.subtotal, .total {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.total {
-  font-weight: bold;
-}
-
-.message {
-  width: 100%;
-  height: 100px;
-  margin-bottom: 2rem;
-  padding: 0.75rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  resize: vertical;
-}
-
-.generateButton {
-  width: 100%;
-  padding: 1rem;
-  background: #4a6fff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.generateButton:hover {
-  background: #3955cc;
-}
-
-.entryTotal {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
+.addEntryButton:hover {
+  color: #45e3ff;
 }
 
 .deleteButton {
   background: none;
   border: none;
-  color: #ff4444;
-  font-size: 20px;
+  color: #ff4757;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0 5px;
-  margin-left: 10px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .deleteButton:hover {
-  color: #cc0000;
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff4757;
+}
+
+.totals {
+  border-top: 2px solid rgba(74, 111, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.subtotal, .total, .taxLine {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: #546e7a;
+  font-size: 1.1rem;
+}
+
+.total {
+  font-weight: 700;
+  color: #37474f;
+  font-size: 1.2rem;
+}
+
+.message {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border: 2px solid rgba(74, 111, 255, 0.1);
+  border-radius: 12px;
+  resize: vertical;
+  font-size: 1rem;
+  color: #37474f;
+  transition: all 0.3s ease;
+}
+
+.message:focus {
+  border-color: rgba(74, 111, 255, 0.3);
+  outline: none;
+}
+
+.generateButton {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #4a6fff 0%, #45e3ff 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.generateButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 111, 255, 0.2);
 }
 
 @media print {
@@ -223,7 +273,9 @@
 
   .header,
   .actions,
-  .generateButton {
+  .generateButton,
+  .addEntryButton,
+  .deleteButton {
     display: none !important;
   }
 
