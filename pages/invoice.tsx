@@ -17,6 +17,18 @@ export default function Invoice() {
   const [paymentTerms, setPaymentTerms] = useState('');
   const [taxDetails, setTaxDetails] = useState([]);
   const [message, setMessage] = useState('');
+  const [logo, setLogo] = useState<string>('');
+
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setLogo(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const addItem = () => {
     setItems([...items, { description: '', quantity: 0, price: 0 }]);
@@ -42,7 +54,16 @@ export default function Invoice() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.logo}>Keiser</div>
+        <div className={styles.logo}>
+          {logo ? (
+            <img src={logo} alt="Company Logo" className={styles.logoImage} />
+          ) : (
+            <label className={styles.logoUpload}>
+              <input type="file" accept="image/*" onChange={handleLogoUpload} />
+              + Add Logo
+            </label>
+          )}
+        </div>
         <div className={styles.actions}>
           <button className={styles.copyButton}>
             <img src="/copy-icon.svg" alt="Copy" />
