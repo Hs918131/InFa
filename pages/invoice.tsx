@@ -15,7 +15,8 @@ export default function Invoice() {
   const [payTo, setPayTo] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [paymentTerms, setPaymentTerms] = useState('');
-  const [taxDetails, setTaxDetails] = useState([]);
+  const [currency, setCurrency] = useState('$');
+  const [taxDetails, setTaxDetails] = useState<{name: string, rate: number}[]>([]);
   const [message, setMessage] = useState('');
   const [logo, setLogo] = useState<string>('');
 
@@ -51,10 +52,32 @@ export default function Invoice() {
     document.title = originalTitle;
   };
 
+  const calculateTax = (subtotal: number) => {
+    return taxDetails.reduce((total, tax) => total + (subtotal * tax.rate / 100), 0);
+  };
+
+  const getCurrencySymbol = (currency: string) => {
+    switch(currency) {
+      case 'EUR': return '€';
+      case 'INR': return '₹';
+      default: return '$';
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
+        <div className={styles.logo}>Keiser</div>
         <div className={styles.actions}>
+          <select 
+            className={styles.currencySelect} 
+            value={currency} 
+            onChange={(e) => setCurrency(e.target.value)}
+          >
+            <option value="$">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="INR">INR (₹)</option>
+          </select>
           <button className={styles.copyButton}>
             <img src="/copy-icon.svg" alt="Copy" />
           </button>
@@ -135,14 +158,54 @@ export default function Invoice() {
           <button onClick={addItem} className={styles.addEntryButton}>Add another entry</button>
         </div>
 
+        <div className={styles.taxDetails}>
+          <h2>Tax Details</h2>
+          {taxDetails.map((tax, index) => (
+            <div key={index} className={styles.taxRow}>
+              <input
+                type="text"
+                placeholder="Tax Name"
+                value={tax.name}
+                onChange={(e) => {
+                  const newTaxDetails = [...taxDetails];
+                  newTaxDetails[index].name = e.target.value;
+                  setTaxDetails(newTaxDetails);
+                }}
+              />
+              <input
+                type="number"
+                placeholder="Rate %"
+                value={tax.rate}
+                onChange={(e) => {
+                  const newTaxDetails = [...taxDetails];
+                  newTaxDetails[index].rate = parseFloat(e.target.value);
+                  setTaxDetails(newTaxDetails);
+                }}
+              />
+            </div>
+          ))}
+          <button 
+            onClick={() => setTaxDetails([...taxDetails, { name: '', rate: 0 }])} 
+            className={styles.addEntryButton}
+          >
+            Add Tax
+          </button>
+        </div>
+
         <div className={styles.totals}>
           <div className={styles.subtotal}>
             <span>Subtotal:</span>
-            <span>${calculateSubtotal().toFixed(2)}</span>
+            <span>{getCurrencySymbol(currency)}{calculateSubtotal().toFixed(2)}</span>
           </div>
+          {taxDetails.map((tax, index) => (
+            <div key={index} className={styles.taxLine}>
+              <span>{tax.name} ({tax.rate}%):</span>
+              <span>{getCurrencySymbol(currency)}{(calculateSubtotal() * tax.rate / 100).toFixed(2)}</span>
+            </div>
+          ))}
           <div className={styles.total}>
             <span>Total:</span>
-            <span>${calculateSubtotal().toFixed(2)}</span>
+            <span>{getCurrencySymbol(currency)}{(calculateSubtotal() + calculateTax(calculateSubtotal())).toFixed(2)}</span>
           </div>
         </div>
 

@@ -50,6 +50,32 @@
 .actions {
   display: flex;
   gap: 1rem;
+  align-items: center;
+}
+
+.currencySelect {
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: white;
+}
+
+.taxDetails {
+  margin-bottom: 2rem;
+}
+
+.taxRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.taxLine {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  margin-bottom: 0.5rem;
 }
 
 .copyButton, .printButton {
