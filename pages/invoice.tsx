@@ -89,7 +89,7 @@ export default function Invoice() {
             <span>Total: ${(item.quantity * item.price).toFixed(2)}</span>
           </div>
         ))}
-        <button onClick={addItem}>Add Item</button>
+        <button onClick={addItem} className={styles.button}>Add Item</button>
       </div>
 
       <div className={styles.total}>
