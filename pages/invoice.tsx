@@ -152,6 +152,12 @@ export default function Invoice() {
               />
               <div className={styles.entryTotal}>
                 ${(item.quantity * item.price).toFixed(2)}
+                <button 
+                  className={styles.deleteButton}
+                  onClick={() => setItems(items.filter((_, i) => i !== index))}
+                >
+                  ×
+                </button>
               </div>
             </div>
           ))}
@@ -182,6 +188,12 @@ export default function Invoice() {
                   setTaxDetails(newTaxDetails);
                 }}
               />
+              <button 
+                className={styles.deleteButton}
+                onClick={() => setTaxDetails(taxDetails.filter((_, i) => i !== index))}
+              >
+                ×
+              </button>
             </div>
           ))}
           <button 
