@@ -54,16 +54,6 @@ export default function Invoice() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.logo}>
-          {logo ? (
-            <img src={logo} alt="Company Logo" className={styles.logoImage} />
-          ) : (
-            <label className={styles.logoUpload}>
-              <input type="file" accept="image/*" onChange={handleLogoUpload} />
-              + Add Logo
-            </label>
-          )}
-        </div>
         <div className={styles.actions}>
           <button className={styles.copyButton}>
             <img src="/copy-icon.svg" alt="Copy" />
@@ -75,7 +65,19 @@ export default function Invoice() {
       </div>
 
       <div className={styles.invoiceForm}>
-        <h1>Invoice</h1>
+        <div className={styles.invoiceHeader}>
+          <h1>Invoice</h1>
+          <div className={styles.logo}>
+            {logo ? (
+              <img src={logo} alt="Company Logo" className={styles.logoImage} />
+            ) : (
+              <label className={styles.logoUpload}>
+                <input type="file" accept="image/*" onChange={handleLogoUpload} />
+                + Add Logo
+              </label>
+            )}
+          </div>
+        </div>
         
         <div className={styles.formSection}>
           <div className={styles.formGroup}>

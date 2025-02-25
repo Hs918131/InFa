@@ -13,13 +13,24 @@
   margin: 0 auto 2rem;
 }
 
+.invoiceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.invoiceHeader h1 {
+  margin: 0;
+}
+
 .logo {
   display: flex;
   align-items: center;
 }
 
 .logoImage {
-  max-height: 60px;
+  max-height: 80px;
   max-width: 200px;
   object-fit: contain;
 }
