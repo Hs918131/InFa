@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from '../styles/Invoice.module.css';
 
 interface InvoiceItem {
@@ -68,7 +69,7 @@ export default function Invoice() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.logo}>Keiser</div>
+        <Link href="/" className={styles.logo}>Keiser</Link>
         <div className={styles.actions}>
           <select 
             className={styles.currencySelect} 
