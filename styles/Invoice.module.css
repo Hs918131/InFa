@@ -1,0 +1,64 @@
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.details {
+  margin: 20px 0;
+}
+
+.details div {
+  margin: 10px 0;
+}
+
+.details label {
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.details input {
+  padding: 5px;
+  width: 200px;
+}
+
+.items {
+  margin: 20px 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.item input {
+  padding: 5px;
+}
+
+.total {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.generate {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.generate:hover {
+  background-color: #0051b3;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 5px 0;
+  cursor: pointer;
+}
