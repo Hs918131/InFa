@@ -60,7 +60,8 @@ export default function Invoice() {
     switch(currency) {
       case 'EUR': return '€';
       case 'INR': return '₹';
-      default: return '$';
+      case 'USD': return '$';
+      default: return currency;
     }
   };
 
@@ -74,7 +75,7 @@ export default function Invoice() {
             value={currency} 
             onChange={(e) => setCurrency(e.target.value)}
           >
-            <option value="$">USD ($)</option>
+            <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
             <option value="INR">INR (₹)</option>
           </select>
@@ -151,7 +152,7 @@ export default function Invoice() {
                 onChange={(e) => updateItem(index, 'price', parseFloat(e.target.value))}
               />
               <div className={styles.entryTotal}>
-                ${(item.quantity * item.price).toFixed(2)}
+                {getCurrencySymbol(currency)}{(item.quantity * item.price).toFixed(2)}
                 <button 
                   className={styles.deleteButton}
                   onClick={() => setItems(items.filter((_, i) => i !== index))}
