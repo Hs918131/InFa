@@ -33,7 +33,10 @@ export default function Invoice() {
   };
 
   const generateInvoice = () => {
+    const originalTitle = document.title;
+    document.title = `Invoice-${invoiceId || 'New'}`;
     window.print();
+    document.title = originalTitle;
   };
 
   return (
