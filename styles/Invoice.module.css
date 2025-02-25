@@ -41,16 +41,18 @@
   border-color: rgba(74, 111, 255, 0.3);
 }
 
-.copyButton, .printButton {
+.themeButton {
   background: white;
   border: 2px solid rgba(74, 111, 255, 0.1);
   border-radius: 12px;
-  padding: 0.75rem;
+  padding: 0.75rem 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
+  color: #546e7a;
 }
 
-.copyButton:hover, .printButton:hover {
+.themeButton:hover {
   background: rgba(74, 111, 255, 0.05);
   transform: translateY(-2px);
 }

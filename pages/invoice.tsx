@@ -79,11 +79,11 @@ export default function Invoice() {
             <option value="EUR">EUR (€)</option>
             <option value="INR">INR (₹)</option>
           </select>
-          <button className={styles.copyButton}>
-            <img src="/copy-icon.svg" alt="Copy" />
-          </button>
-          <button className={styles.printButton}>
-            <img src="/print-icon.svg" alt="Print" />
+          <button 
+            className={styles.themeButton}
+            onClick={() => document.body.classList.toggle('dark-mode')}
+          >
+            Toggle Theme
           </button>
         </div>
       </div>
