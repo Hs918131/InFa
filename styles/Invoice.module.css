@@ -338,24 +338,99 @@
   }
 
   .tableHeader {
-    grid-template-columns: 2fr 0.5fr 0.5fr 0.8fr;
-    font-size: 0.9rem;
-    padding: 0.5rem;
+    grid-template-columns: 1fr;
+    padding: 0;
+    display: none;
   }
 
   .entryRow {
-    grid-template-columns: 2fr 0.5fr 0.5fr 0.8fr;
-    font-size: 0.9rem;
-    padding: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .entryRow input {
+    width: 100%;
+  }
+
+  .entryRow input[type="text"]::before {
+    content: "Description";
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .entryTotal {
+    width: 100%;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #e0e0e0;
   }
 
   .taxRow {
-    grid-template-columns: 1fr 0.5fr auto;
+    grid-template-columns: 1fr;
     gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .taxRow input {
+    width: 100%;
+  }
+
+  .taxRateInput {
+    width: 100%;
+  }
+
+  .taxRateInput input {
+    width: 100%;
+  }
+
+  .entries,
+  .taxDetails {
+    margin: 2rem 0;
+  }
+
+  .summary {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
   }
 
   .summaryDetails {
     width: 100%;
+    margin: 0;
+  }
+
+  .subtotal,
+  .taxLine,
+  .total {
+    padding: 0.5rem 0;
+  }
+
+  .total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .notes {
+    margin-top: 2rem;
+  }
+
+  .notes label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .notes textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 1rem;
+    font-size: 1rem;
   }
 
   .actions {
