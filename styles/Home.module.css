@@ -266,9 +266,30 @@
   .footerContent {
     flex-direction: column;
     gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .footerLeft {
+    max-width: 100%;
+    text-align: center;
   }
 
   .footerLinks {
+    flex-direction: column;
     gap: 2rem;
+    text-align: center;
+  }
+
+  .footerColumn {
+    gap: 1rem;
+  }
+
+  .footerColumn h4 {
+    margin-bottom: 1rem;
+  }
+
+  .footerBottom {
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
   }
 }
